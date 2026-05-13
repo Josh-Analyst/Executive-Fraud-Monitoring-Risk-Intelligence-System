@@ -1,7 +1,7 @@
 # Executive-Fraud-Monitoring-Risk-Intelligence-System
 
  An SQL(T-SQL) based project that walks us through the problem (insight) facing in this data
-
+ 
 ## Project Overview
 
 In modern digital banking, fraud patterns are increasingly complex, often involving coordinated behaviors such as device sharing, rapid transaction bursts, and geographically distributed attacks. This project develops a centralized fraud intelligence system using T-SQL to analyze transactional data and surface high-risk signals.
