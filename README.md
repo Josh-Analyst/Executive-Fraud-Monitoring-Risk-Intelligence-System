@@ -1,6 +1,8 @@
 # Executive-Fraud-Monitoring-Risk-Intelligence-System
 
  An SQL(T-SQL) based project that walks us through the problem (insight) facing in this data
+
+ ![Farud_Detection](Frauud_Detection_pics.png)
  
 ## Project Overview
 
@@ -75,6 +77,8 @@ Tracking transaction behavior
 Detecting fraud patterns (e.g., shared devices, failed transactions)
 Identifying high-risk accounts and regions
 
+![Model_View](Fraud_Detection_DB.png)
+
 ## Tasks solved using MSSQL
 
 **1. Total Transaction Volume ( Measure overall system activity)**
@@ -83,17 +87,23 @@ Identifying high-risk accounts and regions
    - A total of 46 failed transactions were recorded.
    - This suggests possible fraud attempts, such as incorrect PIN entries, card testing, or system abuse.
 
+![Total_Transaction_Volume](Question_1.png)
+
 **2. Failed Transaction Percentage(Evaluate system health and possible fraud attempts)**
 
    Top Spending Customers
    - David Brown leads with the highest transaction value, followed by Fatima Musa and James Wilson.
    - High transaction volume can indicate valuable customers, but also requires monitoring for unusual spending spikes.
+   - 
+![Failed_Transaction_Volume](Question_2.png)
 
   **3. Which Customers Transact the Most? (Identify high-activity users (potential normal or suspicious))**
      
    Top Spending Customers
    - David Brown leads with the highest transaction value, followed by Fatima Musa and James Wilson.
    - High transaction volume can indicate valuable customers, but also requires monitoring for unusual spending spikes.
+     
+![High_Activity_Customer](Question_3.png)
 
 **4. High-Risk Regions(Detect fraud concentration geographically)**
 
@@ -104,11 +114,15 @@ Identifying high-risk accounts and regions
    - Port Harcourt (Nigeria)
  - These locations show fraud activity signals and may require closer monitoring or regional controls.
 
+![High_Risk_Region](Question_4.png)
+
 ** 5. Detect Shared Devices(Flag devices used by multiple accounts)**
 
 Device Usage (Shared Devices Detection)
 - Most devices are linked to one account, but Device 202 (Laptop) is used by 2 accounts.
 - Shared devices are a strong fraud indicator, possibly suggesting account compromise or coordinated activity.
+
+![Multiple_Account_Users](Question_5.png)
 
 **6. Rank Most Suspicious Accounts (Combine multiple fraud indicators)**
    
@@ -116,6 +130,37 @@ High-Risk Accounts
 - Accounts 1002, 1005, and 1008 have the highest risk ranking due to multiple failed transactions.
 - These accounts should be prioritized for investigation, as repeated failures often signal fraud attempts.
 
+![Most_suspicious_Users](Question_6.png)
+
 ## Overall Insight
 
 The analysis reveals early fraud signals through failed transactions, shared devices, and risky locations. While some customers show high activity, combining these patterns helps identify accounts and regions that need immediate attention.
+
+## Recommendation
+
+# Fraud Prevention Recommendations.
+
+**1. Strengthen Failed Transaction Controls**
+- Implement real-time alerts for repeated failed transactions
+- Apply temporary account lock after multiple failed attempts
+  - This reduces card testing and brute-force attacks
+    
+**2. Monitor High-Value Customers**
+- Set up transaction thresholds and behavioral monitoring
+- Trigger alerts for unusual spikes in spending patterns
+  - Protects valuable customers from account takeover or misuse
+    
+**3. Apply Regional Risk Controls**
+- Flag transactions from high-risk locations for additional verification
+- Introduce geo-based authentication (e.g., OTP for flagged regions)
+  - Helps contain region-specific fraud activity
+    
+**4. Detect and Control Shared Device Usage**
+- Flag devices linked to multiple accounts
+- Require step-up authentication (OTP, biometrics) for such devices
+  - Prevents fraud rings and unauthorized access
+  
+**5. Investigate High-Risk Accounts**
+- Prioritize accounts with high failure rates and risk scores
+- Place them under enhanced monitoring or temporary restriction
+  - Enables faster response to active fraud attempts
